@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="Services">
+        <menu>
+            <item
+                android:id="@+id/nav_complain"
+                android:icon="@drawable/ic_add_circle"
+                android:visible="true"
+                android:title="Complain" />
+            <item
+                android:id="@+id/nav_contacu"
+                android:icon="@drawable/ic_add_circle"
+                android:visible="true"
+                android:title="Contact Us" />
+            <item
+                android:id="@+id/about"
+                android:icon="@drawable/ic_add_circle"
+                android:title="About Us"/>
+            <item
+                android:id="@+id/social"
+                android:icon="@drawable/ic_add_circle"
+                android:title="Social Media"/>
+            <item
+                android:id="@+id/Rate"
+                android:icon="@drawable/ic_add_circle"
+                android:visible="true"
+                android:title="Rate Us"/>
+        </menu>
+    </item>
+
+</menu>
