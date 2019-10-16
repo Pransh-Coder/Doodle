@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2a2f42"
+    android:id="@+id/linearLayout"
+    android:orientation="vertical"
+    tools:context=".Login">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign up"
+                android:textSize="30sp"
+                android:textColor="#D4DFE2"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                />
+            <TextView
+                android:id="@+id/txt_who"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Student Login"
+                android:textSize="20dp"
+                android:textColor="#D4DFE2"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <!--For Student -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profile_image_student"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
+                            android:layout_gravity="center"
+                            android:foregroundGravity="center"
+                            android:src="@drawable/student"
+                            app:civ_border_color="#FFFFFF"
+                            app:civ_border_width="2dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Student"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"/>
+                    </LinearLayout>
+                    <!--ENd for Student -->
+
+                    <!--For Faculty -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="20dp">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profile_image_teacher"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
+                            android:src="@drawable/teacher"
+                            app:civ_border_color="#FFFFFF"
+                            app:civ_border_width="2dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Faculty"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"/>
+                    </LinearLayout>
+                    <!--Ends for Faculty-->
+                    <!--For Student -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="20dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profile_image_admin"
+                            android:layout_width="96dp"
+                            android:layout_height="96dp"
+                            android:layout_gravity="center"
+                            android:foregroundGravity="center"
+                            android:src="@drawable/admin"
+                            app:civ_border_color="#FFFFFF"
+                            app:civ_border_width="2dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Admin"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/border"
+                android:hint="   Enter Your Email Id"
+                android:textColorHint="#565F7E"
+                android:textColor="#D4DFE2"
+                android:padding="15dp"
+                android:drawableStart="@drawable/ic_mail"
+                android:id="@+id/edt_mail"
+                android:drawableLeft="@drawable/ic_mail" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/border"
+                android:hint="   Enter Your Password"
+                android:textColorHint="#565F7E"
+                android:drawableLeft="@drawable/ic_lock"
+                android:textColor="#D4DFE2"
+                android:inputType="textPassword"
+                android:padding="15dp"
+                android:id="@+id/edt_password" />
+
+            <Button
+                android:layout_width="150dp"
+                android:id="@+id/btnAuth"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/border_button"
+                android:text="Login"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</LinearLayout>
