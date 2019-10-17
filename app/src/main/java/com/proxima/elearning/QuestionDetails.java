@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,13 +36,15 @@ public class QuestionDetails extends AppCompatActivity {
     TextView q_title,q_body,asker_name;
     String title="",ques="",name="";
 
-    EditText answer,ans_title;
-    Button submit_ans;
-
+    SharedPreferences sharedpreferences;
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
     List<Answer> answerList = new ArrayList<>();
+
+    EditText answer,ans_title;
+    Button sumbmit_ans;
+    String nam,ansTitle,ans;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,25 +55,44 @@ public class QuestionDetails extends AppCompatActivity {
         q_body = findViewById(R.id.showQues);
         asker_name = findViewById(R.id.showName);
 
-        answer=findViewById(R.id.answer);
-        ans_title=findViewById(R.id.ans_title);
-        submit_ans=findViewById(R.id.answer_submit);
+        answer = findViewById(R.id.answer);
+        ans_title = findViewById(R.id.ans_title);
+        sumbmit_ans = findViewById(R.id.answer_submit);
 
         recyclerView = findViewById(R.id.RecyclerView);
         layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+        sharedpreferences=getApplication().getSharedPreferences("Login",0);
+        nam= sharedpreferences.getString("name","");
+
         requestQueue= Volley.newRequestQueue(this);
         final Intent intent = getIntent();           // Receiving data from RecyclerAdapterTopseller (id) in ShowData activity
-        final String ids = intent.getStringExtra("id");
-        Toast.makeText(this, ""+ids, Toast.LENGTH_SHORT).show();
+        final String ids = intent.getStringExtra("id");   //q_id
 
         showQuesDetails(ids);
 
-        submit_ans.setOnClickListener(new View.OnClickListener() {
+        sumbmit_ans.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                postAnswer();
+
+                //
+                ansTitle = ans_title.getText().toString();
+                ans = answer.getText().toString();
+
+                if(ans_title.getText().length()==0)
+                {
+                    ans_title.setError("Enter Title of Answer!");
+                }
+                else if(answer.getText().length()==0)
+                {
+                    answer.setError("Answer field is empty!");
+                }
+                else{
+                    postAnswer(ids);
+                    ans_title.getText().clear();
+                    answer.getText().clear();
+                }
             }
         });
     }
@@ -80,7 +102,6 @@ public class QuestionDetails extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://paytmpay001.dx.am/api/raeces/FetchAnswer.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(QuestionDetails.this, ""+response, Toast.LENGTH_SHORT).show();
                 try {
                     JSONObject jsonObject = new JSONObject(response);  // converting string response into Jsonobject
                     JSONArray jsonArray = jsonObject.getJSONArray("dataQuestion");
@@ -95,19 +116,19 @@ public class QuestionDetails extends AppCompatActivity {
                          name=data.getString("name");
 
                         System.out.println(title);
-                        q_title.setText(""+title);
-                        q_body.setText(""+ques);
-                        asker_name.setText(""+name);
+                        q_title.setText(title);
+                        q_body.setText("Q."+ques);
+                        asker_name.setText(name);
 
                         for (int i = 0 ; i < jsonArrayAnswer.length() ; i++)
                         {
-                            JSONObject data1 = jsonArray.getJSONObject(i);
+                            JSONObject data1 = jsonArrayAnswer.getJSONObject(i);
 
                             final Answer  answer =new Answer();
 
                             answer.setTitle(data1.getString("Answer_Title"));
                             answer.setAnswer(data1.getString("Answer"));
-
+                            answer.setAnswer_by(data1.getString("Answer_by"));
 
                             answerList.add(answer);
                         }
@@ -137,26 +158,29 @@ public class QuestionDetails extends AppCompatActivity {
         };
         requestQueue.add(stringRequest);
     }
-
-    private void postAnswer() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "", new Response.Listener<String>() {
+    private void postAnswer(final String ids) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://paytmpay001.dx.am/api/raeces/Answer_post.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
+                Toast.makeText(QuestionDetails.this, ""+response, Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(QuestionDetails.this, ""+error, Toast.LENGTH_SHORT).show();
             }
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {             // we are sending this data so that at the database we can check whether we have the same data or not i.e for matching
                 HashMap<String,String> map=new HashMap<>();
-                map.put("add_product_id",);
+                map.put("question_id",ids);
+                map.put("Answer_by",nam);
+                map.put("Answer_Title",ansTitle);
+                map.put("Answer",ans);
                 return map;
             }
         };
         requestQueue.add(stringRequest);
     }
+
 }
