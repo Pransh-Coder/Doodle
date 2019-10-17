@@ -112,6 +112,15 @@ public void onClick(View view) {
                         overridePendingTransition(0,0);
                 }
         });
+
+        findViewById(R.id.learning).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        Intent intent = new Intent(Student_dashboard.this,StudyMaterial.class);
+                        startActivityForResult(intent,0);
+                        overridePendingTransition(0,0);
+                }
+        });
         }
 
 @Override
