@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +35,9 @@ public class QuestionDetails extends AppCompatActivity {
     TextView q_title,q_body,asker_name;
     String title="",ques="",name="";
 
+    EditText answer,ans_title;
+    Button submit_ans;
+
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
@@ -46,6 +52,10 @@ public class QuestionDetails extends AppCompatActivity {
         q_body = findViewById(R.id.showQues);
         asker_name = findViewById(R.id.showName);
 
+        answer=findViewById(R.id.answer);
+        ans_title=findViewById(R.id.ans_title);
+        submit_ans=findViewById(R.id.answer_submit);
+
         recyclerView = findViewById(R.id.RecyclerView);
         layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -53,8 +63,16 @@ public class QuestionDetails extends AppCompatActivity {
         requestQueue= Volley.newRequestQueue(this);
         final Intent intent = getIntent();           // Receiving data from RecyclerAdapterTopseller (id) in ShowData activity
         final String ids = intent.getStringExtra("id");
+        Toast.makeText(this, ""+ids, Toast.LENGTH_SHORT).show();
 
         showQuesDetails(ids);
+
+        submit_ans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                postAnswer();
+            }
+        });
     }
 
     private void showQuesDetails(final String ids) {
@@ -88,7 +106,8 @@ public class QuestionDetails extends AppCompatActivity {
                             final Answer  answer =new Answer();
 
                             answer.setTitle(data1.getString("Answer_Title"));
-                            answer.setAnswer(data1.getString("answer"));
+                            answer.setAnswer(data1.getString("Answer"));
+
 
                             answerList.add(answer);
                         }
@@ -119,4 +138,25 @@ public class QuestionDetails extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    private void postAnswer() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {             // we are sending this data so that at the database we can check whether we have the same data or not i.e for matching
+                HashMap<String,String> map=new HashMap<>();
+                map.put("add_product_id",);
+                return map;
+            }
+        };
+        requestQueue.add(stringRequest);
+    }
 }

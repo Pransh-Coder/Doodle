@@ -48,7 +48,7 @@ public class RecyclerAdapterAnswers extends RecyclerView.Adapter<RecyclerAdapter
             super(itemView);
 
             title = itemView.findViewById(R.id.ans_title);
-            ans=itemView.findViewById(R.id.ans);
+            ans=itemView.findViewById(R.id.answ);
 
         }
     }

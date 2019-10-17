@@ -71,8 +71,8 @@
         android:id="@+id/ans_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/answer"
-        tools:layout_editor_absoluteX="5dp" />
+        android:hint="Enter Title of Answer"
+        app:layout_constraintBottom_toTopOf="@+id/answer" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
