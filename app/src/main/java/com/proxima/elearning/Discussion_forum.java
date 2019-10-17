@@ -81,7 +81,7 @@ public class Discussion_forum extends AppCompatActivity {
                         questions.setQues_id(data.getString("question_id"));
                         questions.setQuesTitle(data.getString("title"));
                         questions.setQuestions(data.getString("question"));
-                        questions.setAuth_of_ques(data.getString("name"));
+                        questions.setAuth_of_ques(data.getString("name"));          //Auth - author of ques
 
                         String id = data.getString("question_id");
                         //Toast.makeText(Discussion_forum.this, ""+id, Toast.LENGTH_SHORT).show();
@@ -106,4 +106,5 @@ public class Discussion_forum extends AppCompatActivity {
         });
         requestQueue.add(request);
     }
+
 }
