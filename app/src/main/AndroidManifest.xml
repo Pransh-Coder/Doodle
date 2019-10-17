@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".checksum"></activity>
+        <activity android:name=".CreateNote"></activity>
+        <activity android:name=".ChangePassword" />
+        <activity android:name=".checksum" />
         <activity android:name=".PaymentGateway" />
         <activity android:name=".PostQuestions" />
         <activity android:name=".QuestionDetails" />

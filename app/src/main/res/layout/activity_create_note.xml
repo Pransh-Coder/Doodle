@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2a2f42"
+    tools:context=".CreateNote">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chapter"
+            android:textSize="30dp"
+            android:textColor="#D4DFE2"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtChapter"
+            android:hint="Enter Chapter Name"
+            android:layout_margin="20dp"
+            android:textColor="#D4DFE2"
+            android:background="@drawable/border"
+            android:textColorHint="#565F7E"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Topic"
+            android:layout_marginTop="20dp"
+            android:textSize="30dp"
+            android:textColor="#D4DFE2"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtTopic"
+            android:layout_margin="20dp"
+            android:hint="Enter Topic Name"
+            android:textColor="#D4DFE2"
+            android:background="@drawable/border"
+            android:textColorHint="#565F7E"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Notes"
+            android:textSize="30dp"
+            android:textColor="#D4DFE2"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtNotes"
+            android:hint="Enter Chapter Name"
+            android:textColor="#D4DFE2"
+            android:background="@drawable/border"
+            android:layout_margin="20dp"
+            android:textColorHint="#565F7E"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Create New Note"
+            android:background="@drawable/border_button"
+            android:layout_marginTop="50dp"
+            android:id="@+id/btnNewNote"
+            />
+
+    </LinearLayout>
+</ScrollView>
