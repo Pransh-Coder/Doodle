@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/q_title"
         android:layout_marginTop="5dp"/>
 
-    <EditText
+   <!-- <EditText
         android:id="@+id/q_name"
         android:padding="5dp"
         android:layout_marginTop="5dp"
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/custom_edittext"
         android:hint="Question asked by whom ?"
-        app:layout_constraintTop_toBottomOf="@+id/q_name"/>
+        app:layout_constraintTop_toBottomOf="@+id/q_name"/>-->
 
     <Button
         android:id="@+id/submit_ques"
@@ -65,8 +65,8 @@
         android:layout_height="wrap_content"
         android:text="Submit Question"
         android:layout_marginTop="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/asked_by"
-        app:layout_constraintLeft_toLeftOf="@+id/asked_by"
-        app:layout_constraintRight_toRightOf="@+id/asked_by"/>
+        app:layout_constraintTop_toBottomOf="@+id/q_ques"
+        app:layout_constraintRight_toRightOf="@+id/q_ques"
+        app:layout_constraintLeft_toLeftOf="@+id/q_ques"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
