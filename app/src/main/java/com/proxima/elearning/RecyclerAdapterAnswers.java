@@ -34,6 +34,7 @@ public class RecyclerAdapterAnswers extends RecyclerView.Adapter<RecyclerAdapter
 
         holder.title.setText(answerList.get(position).getTitle());
         holder.ans.setText(answerList.get(position).getAnswer());
+        holder.ans_by.setText(answerList.get(position).getAnswer_by());
     }
 
     @Override
@@ -42,13 +43,14 @@ public class RecyclerAdapterAnswers extends RecyclerView.Adapter<RecyclerAdapter
     }
 
     public  static class ViewHolder extends RecyclerView.ViewHolder{
-        TextView title,ans;
+        TextView title,ans,ans_by;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.ans_title);
             ans=itemView.findViewById(R.id.ans);
+            ans_by=itemView.findViewById(R.id.answerBy);
 
         }
     }

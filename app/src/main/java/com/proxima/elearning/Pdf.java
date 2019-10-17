@@ -10,7 +10,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import org.jsoup.Jsoup;
 import org.w3c.dom.Document;
 
 import java.io.IOException;

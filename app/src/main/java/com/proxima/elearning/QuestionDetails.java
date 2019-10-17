@@ -62,7 +62,6 @@ public class QuestionDetails extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://paytmpay001.dx.am/api/raeces/FetchAnswer.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(QuestionDetails.this, ""+response, Toast.LENGTH_SHORT).show();
                 try {
                     JSONObject jsonObject = new JSONObject(response);  // converting string response into Jsonobject
                     JSONArray jsonArray = jsonObject.getJSONArray("dataQuestion");
@@ -83,12 +82,13 @@ public class QuestionDetails extends AppCompatActivity {
 
                         for (int i = 0 ; i < jsonArrayAnswer.length() ; i++)
                         {
-                            JSONObject data1 = jsonArray.getJSONObject(i);
+                            JSONObject data1 = jsonArrayAnswer.getJSONObject(i);
 
                             final Answer  answer =new Answer();
 
                             answer.setTitle(data1.getString("Answer_Title"));
-                            answer.setAnswer(data1.getString("answer"));
+                            answer.setAnswer(data1.getString("Answer"));
+                            answer.setAnswer_by(data1.getString("Answer_by"));
 
                             answerList.add(answer);
                         }
