@@ -137,7 +137,7 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/doubts"
+                android:id="@+id/report"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
 
@@ -154,13 +154,13 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:src="@drawable/doubts" />
+                        android:src="@drawable/report" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:text="Doubts"
+                        android:text="Report/Feedback"
                         android:textColor="#000000"
                         android:textStyle="bold" />
 
@@ -337,7 +337,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/logo"
             android:scaleType="fitXY"/>
     </LinearLayout>
 

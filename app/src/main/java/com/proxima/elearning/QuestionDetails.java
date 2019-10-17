@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -159,6 +160,8 @@ public class QuestionDetails extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
     private void postAnswer(final String ids) {
+        Log.e("id",ids);
+        final String id = ids;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://paytmpay001.dx.am/api/raeces/Answer_post.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -173,14 +176,19 @@ public class QuestionDetails extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {             // we are sending this data so that at the database we can check whether we have the same data or not i.e for matching
                 HashMap<String,String> map=new HashMap<>();
-                map.put("question_id",ids);
-                map.put("Answer_by",nam);
-                map.put("Answer_Title",ansTitle);
-                map.put("Answer",ans);
+                map.put("question_id",id);
+                map.put("answer_by",nam);
+                map.put("title",ansTitle);
+                map.put("answer",ans);
                 return map;
             }
         };
         requestQueue.add(stringRequest);
+        Intent intent = new Intent(QuestionDetails.this,QuestionDetails.class);
+        intent.putExtra("id",id);
+        startActivityForResult(intent,0);
+        overridePendingTransition(0,0);
+        finish();
     }
 
 }

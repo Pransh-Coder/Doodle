@@ -79,6 +79,15 @@ public class Login extends AppCompatActivity {
             Intent intent = new Intent(Login.this,Student_dashboard.class);
             startActivityForResult(intent, 0);
             overridePendingTransition(0, 0);
+            finish();
+        }
+
+        if (isLogin == 1 && user == 1)
+        {
+            Intent intent = new Intent(Login.this,FacultyDashboard.class);
+            startActivityForResult(intent, 0);
+            overridePendingTransition(0, 0);
+            finish();
         }
 
         if (isLogin == 1 && user == 2)
@@ -86,6 +95,7 @@ public class Login extends AppCompatActivity {
             Intent intent = new Intent(Login.this,AdminControl.class);
             startActivityForResult(intent, 0);
             overridePendingTransition(0, 0);
+            finish();
         }
 
         profile_image_faculty.setOnClickListener(new View.OnClickListener() {
@@ -192,6 +202,68 @@ public class Login extends AppCompatActivity {
     }
 
     private void facultyLogin() {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, config.baseUrl + "facultyLogin.php", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                progressDialog.dismiss();
+
+                try {
+                    Log.e("Json Student",response);
+                    JSONObject jsonObject = new JSONObject(response);
+                    String status = jsonObject.getString("Status");
+                    if (status.equals("Success"))
+                    {
+                        JSONArray jsonArray = jsonObject.getJSONArray("data");
+                        JSONObject student = jsonArray.getJSONObject(0);
+                        String FacID = student.getString("FacID");
+                        String name = student.getString("Name");
+                        String courseCode = student.getString("course_code");
+                        String phone = student.getString("phone");
+                        String course = student.getString("course");
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putInt("isLogin",1);
+                        editor.putInt("User",user);
+                        editor.putString("FacultyID",FacID);
+                        editor.putString("name",name);
+                        editor.putString("course_code",courseCode);
+                        editor.putString("phone",phone);
+                        editor.putString("course",course);
+                        editor.putString("email",edtMail.getText().toString());
+                        editor.commit();
+                        Intent intent = new Intent(Login.this,FacultyDashboard.class);
+                        startActivityForResult(intent, 0);
+                        overridePendingTransition(0, 0);
+
+                    }
+                    else {
+                        Snackbar snackbar = Snackbar
+                                .make(linearLayout, "Wrong Username Or Password", Snackbar.LENGTH_LONG);
+                        snackbar.show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("Error Student",error.toString());
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("email", edtMail.getText().toString());
+                params.put("password",edtPassword.getText().toString());
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
 
     }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,73 +7,96 @@
     android:layout_height="match_parent"
     android:padding="5dp"
     tools:context=".QuestionDetails">
-
-
-    <TextView
-        android:id="@+id/showTitle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/showQues"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:textSize="19sp"
-        app:layout_constraintTop_toBottomOf="@+id/showTitle"/>
+        <TextView
+            android:id="@+id/showTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/showName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/showQues"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView" />
+        <TextView
+            android:id="@+id/showQues"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="19sp"
+            app:layout_constraintTop_toBottomOf="@+id/showTitle"/>
 
-<!--    <TextView
-        android:id="@+id/ans"
-        android:text="ans"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="19sp"
-        android:typeface="serif"
-        app:layout_constraintTop_toBottomOf="@+id/showName"
-        app:layout_constraintRight_toRightOf="@+id/showName"
-        app:layout_constraintLeft_toLeftOf="@+id/showName"/>
-    -->
-   <androidx.recyclerview.widget.RecyclerView
-       android:id="@+id/RecyclerView"
-       android:layout_marginTop="2dp"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       app:layout_constraintTop_toBottomOf="@+id/showName"/>
+        <TextView
+            android:id="@+id/showName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/showQues"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+            android:layout_marginBottom="10dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="20dp"
+            android:background="#000000"/>
 
-    <Button
-        android:id="@+id/answer_submit"
-        android:layout_width="150dp"
-        android:text="Submit Answer"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        <!--    <TextView
+                android:id="@+id/ans"
+                android:text="ans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="19sp"
+                android:typeface="serif"
+                app:layout_constraintTop_toBottomOf="@+id/showName"
+                app:layout_constraintRight_toRightOf="@+id/showName"
+                app:layout_constraintLeft_toLeftOf="@+id/showName"/>
+            -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerView"
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/showName"/>
 
-    <EditText
-        android:id="@+id/answer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Write Answer"
-        app:layout_constraintBottom_toTopOf="@+id/answer_submit"/>
-
-    <EditText
-        android:id="@+id/ans_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Title of Answer"
-        app:layout_constraintBottom_toTopOf="@+id/answer" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="#000000"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/ans_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:hint="Enter Title of Answer"
+            app:layout_constraintBottom_toTopOf="@+id/answer" />
+
+        <EditText
+            android:id="@+id/answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Write Answer"
+            app:layout_constraintBottom_toTopOf="@+id/answer_submit"/>
+
+
+        <Button
+            android:id="@+id/answer_submit"
+            android:layout_width="150dp"
+            android:text="Submit Answer"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".AboutApp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
+        android:text="About DODDLE"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:background="#000000"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/logo"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Doodle a unit of Apeejay Stya University (ASU)
+        \nThe app is made for the purpose to make learning easy for the students of ASU and also have all the records handy
+        \n we provide notes fee status online fee payment and many other things to the students
+        \nOur main aim is to provide quality of experience to students in ASU."
+        android:layout_margin="20dp"
+        android:textColor="#190707"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

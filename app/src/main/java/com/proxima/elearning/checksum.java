@@ -4,24 +4,38 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.paytm.pgsdk.PaytmOrder;
 import com.paytm.pgsdk.PaytmPGService;
 import com.paytm.pgsdk.PaytmPaymentTransactionCallback;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class checksum extends AppCompatActivity implements PaytmPaymentTransactionCallback {
 
     String custid="", orderid="",mid="";
+    RequestQueue requestQueue;
+    Config config;
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,14 +43,17 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
+        requestQueue = Volley.newRequestQueue(checksum.this);
+        config = new Config();
         //geting values from MainActivity
 
+        sharedPreferences = getSharedPreferences("Login",0);
         Intent intent = getIntent();
         orderid=intent.getExtras().getString("orderid");
         custid=intent.getExtras().getString("custid");
         //intent.getExtras().getString("url");
 
-        mid = "CIronQ46939101612109";
+        mid = "wQcpjW51803409595984";
         sendUserDetailTOServerdd dl = new sendUserDetailTOServerdd();
         dl.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
@@ -44,10 +61,10 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
 
         private ProgressDialog progressDialog = new ProgressDialog(checksum.this);
 
-        String url ="http://paytm.paytmpay001.dx.am/generateChecksum.php";
+        String url ="http://www.paytmpay001.dx.am/generateChecksum.php";
         // String varifyurl = "https://securegw.paytm.in/theia/paytmCallback?ORDER_ID\"+orderId;";
         // "https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID"+orderId;
-        String varifyurl="http://paytmpay001.dx.am/verifyChecksum.php";
+        String varifyurl="https://securegw.paytm.in/theia/paytmCallback?ORDER_ID="+orderid;
         String CHECKSUMHASH ="";
 
         // before executing the background task
@@ -104,7 +121,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
             paramMap.put("ORDER_ID", orderid);
             paramMap.put("CUST_ID", custid);
             paramMap.put("CHANNEL_ID", "WAP");
-            paramMap.put("TXN_AMOUNT", "1");
+            paramMap.put("TXN_AMOUNT", ""+sharedPreferences.getInt("remaining",0));
             paramMap.put("WEBSITE", "DEFAULT");
             paramMap.put("CALLBACK_URL" ,varifyurl);
             paramMap.put("CHECKSUMHASH" ,CHECKSUMHASH);
@@ -121,6 +138,84 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
     @Override
     public void onTransactionResponse(Bundle bundle) {
         Log.e("checksum ", " respon true " + bundle.toString());
+        try {
+            final JSONObject jsonObject = new JSONObject();
+            Set<String> keys = bundle.keySet();
+            for (String key : keys) {
+                try {
+                    // json.put(key, bundle.get(key)); see edit below
+                    jsonObject.put(key, JSONObject.wrap(bundle.get(key)));
+                } catch (JSONException e) {
+                    //Handle exception here
+                }
+            }
+
+            String success = jsonObject.getString("STATUS");
+            Log.e("Status",success);
+            if (success.equals("TXN_SUCCESS"))
+            {
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, config.baseUrl + "fees_post.php", new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+                            Log.e("Json Report",response);
+                            JSONObject jsonObject = new JSONObject(response);
+                            String status = jsonObject.getString("Status");
+                            if (status.equals("Success"))
+                            {
+                                Toast.makeText(checksum.this, "Payment Successful", Toast.LENGTH_SHORT).show();
+
+
+                            }
+                            else {
+                                Toast.makeText(checksum.this, "Payment Unsuccessful", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("Error Report",error.toString());
+
+                    }
+                }) {
+                    @Override
+                    protected Map<String, String> getParams() {
+                        Map<String, String> params = new HashMap<String, String>();
+                        params.put("id", sharedPreferences.getString("StudentID",""));
+                        try {
+                            params.put("order_id",jsonObject.getString("ORDERID"));
+                            params.put("amount",jsonObject.getString("TXNAMOUNT"));
+                            params.put("date",jsonObject.getString("TXNDATE"));
+                            params.put("txnid",jsonObject.getString("TXNID"));
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        params.put("name",sharedPreferences.getString("name",""));
+                        return params;
+                    }
+                };
+                requestQueue.add(stringRequest);
+                Intent intent = new Intent(checksum.this,FeeDetails.class);
+
+                startActivityForResult(intent,0);
+                overridePendingTransition(0,0);
+                finish();
+
+            }
+            else {
+                Toast.makeText(this, "Transaction Failure", Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
