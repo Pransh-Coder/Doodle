@@ -97,7 +97,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/asu_library"
+                android:id="@+id/marks"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -137,7 +137,7 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/courses"
+                android:id="@+id/doubts"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
 
@@ -200,7 +200,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/directory"
+                android:id="@+id/discussion"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
 
@@ -240,7 +240,7 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/aboutStudent"
+                android:id="@+id/deatails"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
 
@@ -272,7 +272,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/aboutRaeces"
+                android:id="@+id/aboutdoddle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
@@ -288,13 +288,13 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:src="@drawable/ic_launcher_background" />
+                        android:src="@drawable/d" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:text="About RAECES"
+                        android:text="About Doddle"
                         android:textColor="#000000"
                         android:textStyle="bold" />
 
@@ -303,7 +303,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/calander"
+                android:id="@+id/learning"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"

@@ -26,8 +26,9 @@ public class Student_dashboard extends AppCompatActivity implements NavigationVi
 
         TextView name;
         Button logout;
-@Override
-protected void onCreate(Bundle savedInstanceState) {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_dashboard);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -67,7 +68,7 @@ public void onClick(View view) {
         }
         });
 
-        findViewById(R.id.aboutStudent).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.deatails).setOnClickListener(new View.OnClickListener() {
 @Override
 public void onClick(View view) {
         Intent intent = new Intent(Student_dashboard.this,AboutStudent.class);
@@ -85,7 +86,7 @@ public void onClick(View view) {
         }
         });
 
-        findViewById(R.id.aboutRaeces).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.aboutdoddle).setOnClickListener(new View.OnClickListener() {
 @Override
 public void onClick(View view) {
         Intent intent = new Intent(Student_dashboard.this,AboutApp.class);
@@ -103,7 +104,14 @@ public void onClick(View view) {
         }
         });
 
-
+        findViewById(R.id.discussion).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                        Intent intent = new Intent(Student_dashboard.this,Discussion_forum.class);
+                        startActivityForResult(intent,0);
+                        overridePendingTransition(0,0);
+                }
+        });
         }
 
 @Override
