@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Report"></activity>
+        <activity android:name=".AddFaculty"></activity>
+        <activity android:name=".AddStudent" />
+        <activity android:name=".Report" />
         <activity android:name=".FacultyDashboard" />
         <activity android:name=".Pdf" />
         <activity android:name=".StudyMaterial" />
