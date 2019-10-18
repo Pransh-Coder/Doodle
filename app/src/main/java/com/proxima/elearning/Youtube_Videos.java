@@ -24,11 +24,11 @@ public class Youtube_Videos extends AppCompatActivity {
         layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        videosList.add(new Videos("https://www.youtube.com/watch?v=bSMZknDI6bg"));
-        videosList.add(new Videos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/eWEF1Zrmdow\" frameborder=\"0\" allowfullscreen></iframe>"));
-        videosList.add(new Videos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/eWEF1Zrmdow\" frameborder=\"0\" allowfullscreen></iframe>"));
-        videosList.add(new Videos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/eWEF1Zrmdow\" frameborder=\"0\" allowfullscreen></iframe>"));
-        videosList.add(new Videos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/eWEF1Zrmdow\" frameborder=\"0\" allowfullscreen></iframe>"));
+        videosList.add(new Videos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/_uQrJ0TkZlc\" frameborder=\"0\" allowfullscreen></iframe>"));
+        videosList.add(new Videos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/00EbvyLlAJo\" frameborder=\"0\" allowfullscreen></iframe>"));
+        videosList.add(new Videos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/mU6anWqZJcc\" frameborder=\"0\" allowfullscreen></iframe>"));
+        videosList.add(new Videos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/vLnPwxZdW4Y\" frameborder=\"0\" allowfullscreen></iframe>"));
+        videosList.add(new Videos("<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/aYSgpR5VGPM\" frameborder=\"0\" allowfullscreen></iframe>"));
 
         adapter=new RecyclerAdapterVideos(Youtube_Videos.this,videosList);
         recyclerView.setAdapter(adapter);

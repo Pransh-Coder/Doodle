@@ -4,10 +4,9 @@ public class Videos {
 
     String videourl;
 
-    public Videos() {
-    }
 
     public Videos(String s) {
+        this.videourl =s;
     }
 
 
