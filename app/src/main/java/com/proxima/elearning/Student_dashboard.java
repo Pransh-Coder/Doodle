@@ -132,10 +132,15 @@ public void onClick(View view) {
         });
         }
 
-@Override
-
-public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        return false;
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
+        {
+                if(menuItem.getItemId()==R.id.Tutorials)
+                {
+                        Intent intent = new Intent(this,Youtube_Videos.class);
+                        startActivity(intent);
+                }
+                return false;
         }
 
 }

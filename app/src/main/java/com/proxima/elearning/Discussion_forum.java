@@ -61,6 +61,7 @@ public class Discussion_forum extends AppCompatActivity {
                 Toast.makeText(Discussion_forum.this, "Button Pressed", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Discussion_forum.this,PostQuestions.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -105,6 +106,7 @@ public class Discussion_forum extends AppCompatActivity {
             }
         });
         requestQueue.add(request);
+
     }
 
 }

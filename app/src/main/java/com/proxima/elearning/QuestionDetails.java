@@ -108,7 +108,7 @@ public class QuestionDetails extends AppCompatActivity {
                     JSONArray jsonArray = jsonObject.getJSONArray("dataQuestion");
                     JSONArray jsonArrayAnswer = jsonObject.getJSONArray("dataAnswer");
 
-
+                        // no need for loop becoz there is only 1 question at a time
 
                         JSONObject data = jsonArray.getJSONObject(0);
 

@@ -2,6 +2,7 @@ package com.proxima.elearning;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -92,6 +93,9 @@ public class PostQuestions extends AppCompatActivity {
                     postQues();
                     ques_title.getText().clear();
                     question_body.getText().clear();
+                    Intent intent = new Intent(PostQuestions.this,Discussion_forum.class);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });

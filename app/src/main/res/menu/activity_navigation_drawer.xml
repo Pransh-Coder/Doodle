@@ -28,6 +28,12 @@
                 android:icon="@drawable/ic_add_circle"
                 android:visible="true"
                 android:title="Rate Us"/>
+
+            <item
+                android:id="@+id/Tutorials"
+                android:icon="@drawable/ic_add_circle"
+                android:visible="true"
+                android:title="Video Tutorials"/>
         </menu>
     </item>
 
