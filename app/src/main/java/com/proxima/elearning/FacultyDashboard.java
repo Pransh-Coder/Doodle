@@ -29,5 +29,14 @@ public class FacultyDashboard extends AppCompatActivity {
                 finish();
             }
         });
+
+        findViewById(R.id.btnAddStudent).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FacultyDashboard.this,AddStudent.class);
+                startActivityForResult(intent,0);
+                overridePendingTransition(0,0);
+            }
+        });
     }
 }

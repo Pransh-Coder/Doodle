@@ -7,6 +7,10 @@ public class Videos {
     public Videos() {
     }
 
+    public Videos(String s) {
+    }
+
+
     public String getVideourl() {
         return videourl;
     }

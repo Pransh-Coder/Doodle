@@ -17,6 +17,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".Youtube_Videos"></activity>
+        <activity android:name=".AddFaculty"></activity>
+        <activity android:name=".AddStudent" />
         <activity android:name=".Report" />
         <activity android:name=".FacultyDashboard" />
         <activity android:name=".Pdf" />
