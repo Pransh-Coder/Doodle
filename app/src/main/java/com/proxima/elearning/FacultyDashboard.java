@@ -38,5 +38,23 @@ public class FacultyDashboard extends AppCompatActivity {
                 overridePendingTransition(0,0);
             }
         });
+
+        findViewById(R.id.btnMarkAttendance).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FacultyDashboard.this , MarkAttendance.class);
+                startActivityForResult(intent,0);
+                overridePendingTransition(0,0);
+            }
+        });
+
+        findViewById(R.id.btnDiscussion).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FacultyDashboard.this,Discussion_forum.class);
+                startActivityForResult(intent,0);
+                overridePendingTransition(0,0);
+            }
+        });
     }
 }

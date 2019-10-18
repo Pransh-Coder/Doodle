@@ -51,7 +51,7 @@ public class Attendance extends AppCompatActivity {
                     course = jsonObject.getString("course");
                     present = Integer.parseInt(strPresent);
                     total = Integer.parseInt(strTotal);
-                    int percentage = (present/total)*100;
+                    Float percentage = (Float.valueOf(strPresent)/Float.valueOf(strTotal))*100;
                     TextView txtAtt,txtPer,txtCourse;
                     txtAtt = findViewById(R.id.txtatt);
                     txtCourse = findViewById(R.id.txtCourse);

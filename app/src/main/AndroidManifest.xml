@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Announcements"></activity>
+        <activity android:name=".MarkAttendance"></activity>
+        <activity android:name=".Announcements" />
         <activity android:name=".AddFaculty" />
         <activity android:name=".AddStudent" />
         <activity android:name=".Report" />

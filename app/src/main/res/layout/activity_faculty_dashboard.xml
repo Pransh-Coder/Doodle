@@ -20,5 +20,19 @@
         android:text="Add Student"
         android:layout_margin="20dp"
         android:id="@+id/btnAddStudent"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_button"
+        android:text="Mark Attendance"
+        android:layout_margin="20dp"
+        android:id="@+id/btnMarkAttendance"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_button"
+        android:text="Discussion"
+        android:layout_margin="20dp"
+        android:id="@+id/btnDiscussion"/>
 
 </LinearLayout>
