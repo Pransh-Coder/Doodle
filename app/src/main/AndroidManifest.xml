@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.proxima.elearning">
 
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_SMS" />
@@ -10,16 +10,17 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MarkAttendance"></activity>
+        <activity android:name=".Marks"></activity>
+        <activity android:name=".MarkAttendance" />
         <activity android:name=".Announcements" />
         <activity android:name=".AddFaculty" />
-        <activity android:name=".Youtube_Videos"></activity>
+        <activity android:name=".Youtube_Videos" />
         <activity android:name=".AddStudent" />
         <activity android:name=".Report" />
         <activity android:name=".FacultyDashboard" />

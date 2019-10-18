@@ -1,11 +1,14 @@
 package com.proxima.elearning;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,8 +34,12 @@ public class RecyclerAdapterVideos extends RecyclerView.Adapter<RecyclerAdapterV
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.video.loadData(videosList.get(position).getVideourl(),"text/html","utf-8");
-        holder.video.loadUrl(videosList.get(position).getVideourl());
+        holder.webView.setWebViewClient(new myWebClient());
+        WebSettings webSettings=holder.webView.getSettings();
+        webSettings.setBuiltInZoomControls(true);
+        holder.webView.getSettings().setJavaScriptEnabled(true);
+        holder.webView.loadData(videosList.get(position).getVideourl(),"text/html","utf-8");
+//        holder.webView.loadUrl(videosList.get(position).getVideourl());
     }
 
     @Override
@@ -40,15 +47,31 @@ public class RecyclerAdapterVideos extends RecyclerView.Adapter<RecyclerAdapterV
         return videosList.size();
     }
 
-    public  static class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
-        WebView video;
+        WebView webView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            video = itemView.findViewById(R.id.Web_View);
-            video.getSettings().setJavaScriptEnabled(true);
-            video.setWebChromeClient(new WebChromeClient());
+            webView = itemView.findViewById(R.id.Web_View);
+
+
+            //webSettings.setBuiltInZoomControls(true);
+        }
+    }
+    public class myWebClient extends WebViewClient
+    {
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+        }
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+
+            view.loadUrl(url);
+            return true;
+
         }
     }
 }
