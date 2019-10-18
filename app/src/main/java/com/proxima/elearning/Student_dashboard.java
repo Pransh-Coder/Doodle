@@ -8,12 +8,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -135,12 +137,52 @@ public void onClick(View view) {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
         {
-                if(menuItem.getItemId()==R.id.Tutorials)
+                if(menuItem.getItemId()==R.id.nav_complain)
+                {
+                        Intent intent = new Intent(this,Report.class);
+                        startActivity(intent);
+                }
+                else if(menuItem.getItemId()==R.id.nav_contacu)
+                {
+                        openWhatsApp();
+                }
+                else if(menuItem.getItemId()==R.id.Tutorials)
                 {
                         Intent intent = new Intent(this,Youtube_Videos.class);
                         startActivity(intent);
                 }
+                else if(menuItem.getItemId()==R.id.about)
+                {
+                        Intent intent = new Intent(this,AboutApp.class);
+                        startActivity(intent);
+                }
+                else if(menuItem.getItemId()==R.id.social)
+                {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("https://instagram.com"));
+                        startActivity(intent);
+                }
+                else {
+                        Toast.makeText(this, "We will be updating as soon as we deploy this app on Playstore!", Toast.LENGTH_SHORT).show();
+                }
                 return false;
+        }
+
+        public void openWhatsApp(){
+                try {
+                        String text = "Hello";// Replace with your message.
+
+                        String toNumber = "919716838625"; // Replace with mobile phone number without +Sign or leading zeros, but with country code
+                        //Suppose your country is India and your phone number is “xxxxxxxxxx”, then you need to send “91xxxxxxxxxx”.
+
+
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+toNumber +"&text="+text));
+                        startActivity(intent);
+                }
+                catch (Exception e){
+                        e.printStackTrace();
+                }
         }
 
 }

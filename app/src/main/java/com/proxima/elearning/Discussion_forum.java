@@ -42,6 +42,11 @@ public class Discussion_forum extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discussion_forum);
 
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar!=null)
+        {
+            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.custom_actionbar));
+        }
         addQuestions=findViewById(R.id.fab);
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -49,11 +54,6 @@ public class Discussion_forum extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         requestQueue= Volley.newRequestQueue(this);
 
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar!=null)
-        {
-            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.custom_actionbar));
-        }
         showQuestions();
         addQuestions.setOnClickListener(new View.OnClickListener() {
             @Override

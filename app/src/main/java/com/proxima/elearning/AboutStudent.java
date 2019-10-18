@@ -1,5 +1,6 @@
 package com.proxima.elearning;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -26,6 +27,12 @@ public class AboutStudent extends AppCompatActivity {
         tvPhone = findViewById(R.id.tvPhone);
         tvCourse = findViewById(R.id.tvCourse);
         tvInterest = findViewById(R.id.tvInterest);
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar!=null)
+        {
+            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.custom_actionbar));
+        }
+
         getData();
         tvName.setText(name);
         tvClass.setText(Class);
