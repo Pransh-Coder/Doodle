@@ -6,41 +6,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
+
     tools:context=".Attendance">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:textColor="#FFFFFF"
+        android:gravity="center"
         android:text="Attendance"
-        android:background="#000000"/>
+        android:background="@drawable/heading_background"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30dp"
+        android:textStyle="bold"
         android:id="@+id/txtCourse"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp" />
+        android:layout_gravity="center"
+        android:background="@drawable/custom_edittext"
+        android:layout_marginTop="20dp" />
+
+   <!-- <View
+        android:layout_width="120dp"
+        android:layout_height="2dp"
+        android:layout_gravity="center"
+        android:background="#190707"/>-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
-        android:text="Attendance"/>
+        android:layout_gravity="center"
+        android:text="Present"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:id="@+id/txtatt"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
-        android:text="Attendance"/>
+        android:layout_gravity="center"
+        android:text="Percentage%"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:id="@+id/txtper"/>
 
     <TextView

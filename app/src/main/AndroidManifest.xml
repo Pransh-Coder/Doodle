@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.proxima.elearning">
 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_SMS" />
@@ -15,22 +16,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Report"></activity>
+        <activity android:name=".Youtube_Videos"></activity>
+        <activity android:name=".Report" />
         <activity android:name=".FacultyDashboard" />
         <activity android:name=".Pdf" />
         <activity android:name=".StudyMaterial" />
         <activity android:name=".CreateNote" />
         <activity android:name=".ChangePassword" />
         <activity android:name=".checksum" />
-        <activity android:name=".PaymentGateway" />
+        <activity
+            android:name=".PaymentGateway"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name=".PostQuestions" />
         <activity android:name=".QuestionDetails" />
         <activity android:name=".Discussion_forum" />
         <activity android:name=".Notes" />
         <activity android:name=".AboutApp" />
-        <activity android:name=".FeeDetails" />
+        <activity
+            android:name=".FeeDetails"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name=".AboutStudent" />
-        <activity android:name=".Attendance" />
+        <activity
+            android:name=".Attendance"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name=".AdminControl" />
         <activity
             android:name=".Login"
