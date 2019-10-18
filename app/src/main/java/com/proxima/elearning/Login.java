@@ -170,6 +170,7 @@ public class Login extends AppCompatActivity {
                         Intent intent = new Intent(Login.this,AdminControl.class);
                         startActivityForResult(intent, 0);
                         overridePendingTransition(0, 0);
+                        finish();
 
                     }
                     else {
@@ -234,6 +235,7 @@ public class Login extends AppCompatActivity {
                         Intent intent = new Intent(Login.this,FacultyDashboard.class);
                         startActivityForResult(intent, 0);
                         overridePendingTransition(0, 0);
+                        finish();
 
                     }
                     else {
@@ -305,6 +307,7 @@ public class Login extends AppCompatActivity {
                         Intent intent = new Intent(Login.this,Student_dashboard.class);
                         startActivityForResult(intent, 0);
                         overridePendingTransition(0, 0);
+                        finish();
 
                     }
                     else {

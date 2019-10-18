@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "472860555041",
+    "firebase_url": "https://doddle-ae940.firebaseio.com",
+    "project_id": "doddle-ae940",
+    "storage_bucket": "doddle-ae940.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472860555041:android:5eda4bcf036f238f377060",
+        "android_client_info": {
+          "package_name": "com.proxima.elearning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472860555041-ul6rsi8atm6ctnd0tan3llt1fpcuudpd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.proxima.elearning",
+            "certificate_hash": "aea02864b14e370dcaefb27fca8a04b23cbc92a0"
+          }
+        },
+        {
+          "client_id": "472860555041-2a4s2fsjrhscmuv2c76vdujm7pppvo4j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb-adsqL0YQajv5HSp4IfLLNPIUVHYNO4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472860555041-2a4s2fsjrhscmuv2c76vdujm7pppvo4j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

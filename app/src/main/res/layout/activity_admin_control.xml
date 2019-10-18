@@ -33,5 +33,14 @@
         android:id="@+id/btnAddFaculty"
         />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/border_button"
+        android:text="Announcements"
+        android:id="@+id/btnSendNotification"
+        />
+
 
 </LinearLayout>

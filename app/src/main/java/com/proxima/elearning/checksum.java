@@ -202,8 +202,13 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
                     }
                 };
                 requestQueue.add(stringRequest);
-                Intent intent = new Intent(checksum.this,FeeDetails.class);
 
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                int paid = sharedPreferences.getInt("paid",0);
+                int amount = Integer.parseInt(jsonObject.getString("TXNAMOUNT"));
+                editor.putInt("paid",paid+amount);
+                editor.putInt("remaining",0);
+                Intent intent = new Intent(checksum.this,FeeDetails.class);
                 startActivityForResult(intent,0);
                 overridePendingTransition(0,0);
                 finish();
