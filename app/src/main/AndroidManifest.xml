@@ -35,7 +35,8 @@
         <activity android:name=".PostQuestions" />
         <activity android:name=".QuestionDetails" />
         <activity android:name=".Discussion_forum" />
-        <activity android:name=".Notes" />
+        <activity android:name=".Notes"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name=".AboutApp" />
         <activity
             android:name=".FeeDetails"

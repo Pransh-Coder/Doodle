@@ -7,12 +7,12 @@
         <menu>
             <item
                 android:id="@+id/nav_complain"
-                android:icon="@drawable/ic_add_circle"
+                android:icon="@drawable/ic_report_problem_black_24dp"
                 android:visible="true"
                 android:title="Complain" />
             <item
                 android:id="@+id/nav_contacu"
-                android:icon="@drawable/ic_add_circle"
+                android:icon="@drawable/ic_contact_phone_black_24dp"
                 android:visible="true"
                 android:title="Contact Us" />
             <item
@@ -21,17 +21,17 @@
                 android:title="About Us"/>
             <item
                 android:id="@+id/social"
-                android:icon="@drawable/ic_add_circle"
+                android:icon="@drawable/ic_web_black_24dp"
                 android:title="Social Media"/>
             <item
                 android:id="@+id/Rate"
-                android:icon="@drawable/ic_add_circle"
+                android:icon="@drawable/ic_rate_review_black_24dp"
                 android:visible="true"
                 android:title="Rate Us"/>
 
             <item
                 android:id="@+id/Tutorials"
-                android:icon="@drawable/ic_add_circle"
+                android:icon="@drawable/ic_video_library_black_24dp"
                 android:visible="true"
                 android:title="Video Tutorials"/>
         </menu>
