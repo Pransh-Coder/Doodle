@@ -7,21 +7,21 @@
         <menu>
             <item
                 android:id="@+id/nav_complain"
-                android:icon="@drawable/ic_report_problem_black_24dp"
+                android:icon="@drawable/complaint"
                 android:visible="true"
                 android:title="Complain" />
             <item
                 android:id="@+id/nav_contacu"
-                android:icon="@drawable/ic_contact_phone_black_24dp"
+                android:icon="@drawable/contactus"
                 android:visible="true"
                 android:title="Contact Us" />
             <item
                 android:id="@+id/about"
-                android:icon="@drawable/ic_add_circle"
+                android:icon="@drawable/aboutus"
                 android:title="About Us"/>
             <item
                 android:id="@+id/social"
-                android:icon="@drawable/ic_web_black_24dp"
+                android:icon="@drawable/instagramlogo"
                 android:title="Social Media"/>
             <item
                 android:id="@+id/Rate"

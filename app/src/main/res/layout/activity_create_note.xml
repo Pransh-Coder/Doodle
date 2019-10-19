@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
     android:background="#2a2f42"
     tools:context=".CreateNote">
     <LinearLayout
@@ -64,11 +65,12 @@
             android:textColorHint="#565F7E"
             />
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Create New Note"
-            android:background="@drawable/border_button"
+            android:textColor="@color/white"
+            android:background="@drawable/custom_button"
             android:layout_marginTop="50dp"
             android:id="@+id/btnNewNote"
             />
