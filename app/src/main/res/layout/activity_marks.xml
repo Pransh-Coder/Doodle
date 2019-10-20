@@ -13,4 +13,10 @@
         android:textSize="50dp"
         android:gravity="center"/>
 
+    <TextView
+        android:id="@+id/data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
