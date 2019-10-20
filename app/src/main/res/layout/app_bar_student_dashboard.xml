@@ -30,7 +30,7 @@
                     android:layout_height="100dp"
                     android:layout_marginLeft="240dp"
                     android:layout_marginTop="7dp"
-                    android:id="@+id/search"
+                    android:id="@+id/notification"
                     android:layout_alignParentEnd="true"
                     android:src="@drawable/ic_notifications"
                     android:layout_alignParentRight="true" />

@@ -7,6 +7,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.volley.Request;
+import com.android.volley.toolbox.JsonArrayRequest;
+
 public class AdminControl extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
@@ -49,6 +52,41 @@ public class AdminControl extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminControl.this,Announcements.class);
+                startActivityForResult(intent,0);
+                overridePendingTransition(0,0);
+            }
+        });
+        findViewById(R.id.btnCheckReports).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminControl.this,CheckReport.class);
+                startActivityForResult(intent,0);
+                overridePendingTransition(0,0);
+            }
+        });
+        findViewById(R.id.btnViewStudent).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminControl.this,EnterId.class);
+                intent.putExtra("entry",0);
+                startActivityForResult(intent,0);
+                overridePendingTransition(0,0);
+            }
+        });
+        findViewById(R.id.btnViewFaculty).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminControl.this,EnterId.class);
+                intent.putExtra("entry",1);
+                startActivityForResult(intent,0);
+                overridePendingTransition(0,0);
+            }
+        });
+
+        findViewById(R.id.btnCheckPayment).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminControl.this,CheckPayments.class);
                 startActivityForResult(intent,0);
                 overridePendingTransition(0,0);
             }

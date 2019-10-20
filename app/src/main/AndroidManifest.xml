@@ -16,7 +16,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Marks"></activity>
+        <activity android:name=".ArchivedNotification"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".notification_info"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Main2Activity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".CheckPayments" />
+        <activity android:name=".ViewFaculty" />
+        <activity android:name=".EnterId" />
+        <activity android:name=".ViewStudent" />
+        <activity android:name=".CheckReport" />
+        <activity android:name=".Marks" />
         <activity android:name=".MarkAttendance" />
         <activity android:name=".Announcements" />
         <activity android:name=".AddFaculty" />
@@ -35,7 +46,8 @@
         <activity android:name=".PostQuestions" />
         <activity android:name=".QuestionDetails" />
         <activity android:name=".Discussion_forum" />
-        <activity android:name=".Notes"
+        <activity
+            android:name=".Notes"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name=".AboutApp" />
         <activity

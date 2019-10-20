@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,16 +22,19 @@ import com.android.volley.RequestQueue;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerAdapterDiscussion_forum  extends RecyclerView.Adapter<RecyclerAdapterDiscussion_forum.ViewHolder> {
+public class RecyclerAdapterDiscussion_forum  extends RecyclerView.Adapter<RecyclerAdapterDiscussion_forum.ViewHolder> implements Filterable {
 
     RequestQueue queue;
 
     Context context;
     List<Questions> questionsList = new ArrayList<>();
+    List<Questions> data = new ArrayList<>();
+    private ArrayList<Questions> dataFull;
 
     public RecyclerAdapterDiscussion_forum(Context context, List<Questions> questions) {
         this.context = context;
         this.questionsList = questions;
+        dataFull = new ArrayList<>(questionsList);
     }
 
     @NonNull
@@ -82,4 +87,52 @@ public class RecyclerAdapterDiscussion_forum  extends RecyclerView.Adapter<Recyc
             constraintLayout = itemView.findViewById(R.id.constraintView2);
         }
     }
+    @Override
+    public Filter getFilter() {
+        return exampleFilter;
+    }
+
+    private Filter exampleFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            List<Questions> filteredList = new ArrayList<>();
+            if (charSequence == null || charSequence.length()==0)
+            {
+                filteredList.addAll(dataFull);
+            }
+            else {
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+                for (Questions item : dataFull)
+                {
+                    if (item.getQuesTitle().toLowerCase().startsWith(filterPattern))
+                    {
+                        filteredList.add(item);
+
+                    }
+                    else if (item.getQuestions().toLowerCase().contains(filterPattern))
+                    {
+                        filteredList.add(item);
+                    }
+                    else if (item.getAuth_of_ques().toLowerCase().contains(filterPattern))
+                    {
+                        filteredList.add(item);
+                    }
+                    else {
+
+                    }
+                }
+            }
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filteredList;
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            questionsList.clear();
+            questionsList.addAll((List) filterResults.values);
+            notifyDataSetChanged();
+
+        }
+    };
 }

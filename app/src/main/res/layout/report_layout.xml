@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/report_by"
+            android:text="Report By"/>
+        <TextView
+            android:layout_width="100dp"
+            android:id="@+id/subject"
+            android:layout_height="wrap_content"
+            android:text="Subject"/>
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/desc"
+            android:text="Description"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSolved"
+            android:background="@drawable/ic_done"
+            android:backgroundTint="#000000"/>
+    </LinearLayout>
+
+</LinearLayout>
