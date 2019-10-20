@@ -9,7 +9,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -30,7 +35,7 @@ import java.util.List;
 public class Discussion_forum extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    RecyclerView.Adapter adapter;
+    RecyclerAdapterDiscussion_forum adapter;
     RecyclerView.LayoutManager layoutManager;
     SharedPreferences sharedPreferences;
     FloatingActionButton addQuestions;
@@ -108,5 +113,28 @@ public class Discussion_forum extends AppCompatActivity {
         requestQueue.add(request);
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.browse, menu);
+        MenuItem searchItem = menu.findItem(R.id.menu_search);
+        SearchView searchView = (SearchView)searchItem.getActionView();
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                adapter.getFilter().filter(s);
+
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
+    }
+
 
 }

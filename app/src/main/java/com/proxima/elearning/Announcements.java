@@ -3,6 +3,8 @@ package com.proxima.elearning;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +17,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,6 +30,7 @@ import java.util.Map;
 public class Announcements extends AppCompatActivity {
 
     EditText edtTitle;
+    Config config;
     EditText edtMessage;
     final private String FCM_API = "https://fcm.googleapis.com/fcm/send";
     final private String serverKey = "key=AIzaSyDfyJA1Mu-udXhl7f0i-L91buVuUWOESgk";
@@ -35,6 +40,7 @@ public class Announcements extends AppCompatActivity {
     String NOTIFICATION_TITLE;
     String NOTIFICATION_MESSAGE;
     String TOPIC;
+    RequestQueue requestQueue;
 
 
     @Override
@@ -44,6 +50,8 @@ public class Announcements extends AppCompatActivity {
         edtTitle = findViewById(R.id.edtTitle);
         edtMessage = findViewById(R.id.edtMessage);
         Button btnSend = findViewById(R.id.btnSend);
+        config = new Config();
+        requestQueue = Volley.newRequestQueue(Announcements.this);
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,9 +74,45 @@ public class Announcements extends AppCompatActivity {
                     Log.e(TAG, "onCreate: " + e.getMessage() );
                 }
                 sendNotification(notification);
+                saveNotification();
             }
         });
     }
+
+    private void saveNotification() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, config.baseUrl + "notification_post.php", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    Log.e("Json Admin",response);
+                    JSONObject jsonObject = new JSONObject(response);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("Error Admin",error.toString());
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("title", edtTitle.getText().toString());
+                params.put("data",edtMessage.getText().toString());
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
+
+    }
+
     private void sendNotification(JSONObject notification) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(FCM_API, notification,
                 new Response.Listener<JSONObject>() {

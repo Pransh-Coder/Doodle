@@ -120,7 +120,7 @@ public class Marks extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> map = new HashMap<String, String>();
-                map.put("stndid ",s_id);
+                map.put("stndid",s_id);
                 Log.e("Map",s_id+" abc");
                 return map;
             }
