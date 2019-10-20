@@ -31,7 +31,7 @@ public class Marks extends AppCompatActivity {
     SharedPreferences sharedPreference;
     RequestQueue requestQueue;
     String s_id;
-    TextView textView;
+    TextView ass1,ass2,midM,finalM,course;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,12 @@ public class Marks extends AppCompatActivity {
         setContentView(R.layout.activity_marks);
 
         requestQueue = Volley.newRequestQueue(this);
-        textView = findViewById(R.id.data);
+        ass1 = findViewById(R.id.A1);
+        ass2=findViewById(R.id.A2);
+        midM=findViewById(R.id.mid);
+        course=findViewById(R.id.course);
+        finalM=findViewById(R.id.finalMarks);
+
 
         sharedPreference = getApplication().getSharedPreferences("Login", MODE_PRIVATE);
         s_id = sharedPreference.getString("StudentID", "");
@@ -54,7 +59,7 @@ public class Marks extends AppCompatActivity {
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST,"http://paytmpay001.dx.am/api/raeces/Marks.php",null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                textView.setText(response.toString());
+                //textView.setText(response.toString());
                 Toast.makeText(Marks.this, ""+response, Toast.LENGTH_SHORT).show();
 
                 for(int i=0;i<response.length();i++)
@@ -99,10 +104,17 @@ public class Marks extends AppCompatActivity {
                     for (int i=0;i<jsonArray.length();i++)
                     {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        String t=  jsonObject.getString("marksa1");
-                        String m = jsonObject.getString("marksmid");
-                        textView.setText(t);
-                        Toast.makeText(Marks.this, ""+t+" "+m, Toast.LENGTH_SHORT).show();
+                        String a1=  jsonObject.getString("marksa1");
+                        String mid = jsonObject.getString("marksmid");
+                        String a2= jsonObject.getString("marksa2");
+                        String f= jsonObject.getString("marksf");
+                        String c= jsonObject.getString("course");
+
+                        course.append(c);
+                        ass1.append(" "+a1+"/10");
+                        ass2.append(" "+a2+"/10");
+                        midM.append(" "+mid+"/20");
+                        finalM.append(" "+f+"/60");
                     }
                 }
                 catch (JSONException e) {
@@ -120,7 +132,7 @@ public class Marks extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> map = new HashMap<String, String>();
-                map.put("stndid ",s_id);
+                map.put("stndid",s_id);
                 Log.e("Map",s_id+" abc");
                 return map;
             }
