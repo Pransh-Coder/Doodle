@@ -78,6 +78,7 @@ public class RecyclerAdapterDiscussion_forum  extends RecyclerView.Adapter<Recyc
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView quesTitle,question,ques_Authors;
         ConstraintLayout constraintLayout;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 

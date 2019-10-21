@@ -4,22 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:padding="5dp"
     android:layout_height="match_parent"
     tools:context=".EnterId">
 
     <EditText
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border"
         android:id="@+id/id"
         android:hint="Enter the ID to be searched for"/>
+
     <Button
+        android:id="@+id/search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Seaech"
-        android:id="@+id/search"
+        android:text="Search"
         android:layout_gravity="center"
-        android:background="@drawable/border_button"
+        android:textColor="@color/white"
+        android:background="@drawable/custom_button"
         android:layout_marginTop="20dp"/>
 
 </LinearLayout>

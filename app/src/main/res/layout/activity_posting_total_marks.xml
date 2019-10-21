@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".PostingTotalMarks">
+
+    <TextView
+        android:id="@+id/TM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Posting Total Marks "
+        android:textSize="30sp"
+        android:typeface="serif"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/MarksAss1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Total Marks of Assignment 1"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/TM"/>
+
+    <EditText
+        android:id="@+id/MarksAss2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Total Marks of Assignment 2"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/MarksAss1"/>
+
+    <EditText
+        android:id="@+id/MarksMid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Total Marks of Midterm"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/MarksAss2"/>
+
+    <EditText
+        android:id="@+id/MarksFin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Total Marks of Final Exam"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/MarksMid"/>
+
+    <Button
+        android:id="@+id/PostButton"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="Post Total Marks"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_button"
+        app:layout_constraintTop_toBottomOf="@+id/MarksFin"
+        app:layout_constraintLeft_toLeftOf="@+id/MarksFin"
+        app:layout_constraintRight_toRightOf="@+id/MarksFin"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

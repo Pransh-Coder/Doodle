@@ -121,7 +121,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:text="Version"
+                        android:text="Marks"
                         android:textColor="#000000"
                         android:textStyle="bold" />
 

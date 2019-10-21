@@ -68,7 +68,7 @@ public class QuestionDetails extends AppCompatActivity {
         nam= sharedpreferences.getString("name","");
 
         requestQueue= Volley.newRequestQueue(this);
-        final Intent intent = getIntent();           // Receiving data from RecyclerAdapterTopseller (id) in ShowData activity
+        final Intent intent = getIntent();
         final String ids = intent.getStringExtra("id");   //q_id
 
         showQuesDetails(ids);

@@ -109,12 +109,16 @@ public class Marks extends AppCompatActivity {
                         String a2= jsonObject.getString("marksa2");
                         String f= jsonObject.getString("marksf");
                         String c= jsonObject.getString("course");
+                        String moutA1=jsonObject.getString("totala1");
+                        String moutA2=jsonObject.getString("totala2");
+                        String moutMid=jsonObject.getString("totalmid");
+                        String moutFin=jsonObject.getString("totalf");
 
                         course.append(c);
-                        ass1.append(" "+a1+"/10");
-                        ass2.append(" "+a2+"/10");
-                        midM.append(" "+mid+"/20");
-                        finalM.append(" "+f+"/60");
+                        ass1.append(" "+a1+"/"+moutA1);
+                        ass2.append(" "+a2+"/"+moutA2);
+                        midM.append(" "+mid+"/"+moutMid);
+                        finalM.append(" "+f+"/"+moutFin);
                     }
                 }
                 catch (JSONException e) {

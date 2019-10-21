@@ -56,5 +56,21 @@ public class FacultyDashboard extends AppCompatActivity {
                 overridePendingTransition(0,0);
             }
         });
+        findViewById(R.id.AddTMarks).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FacultyDashboard.this,PostingTotalMarks.class);
+                startActivityForResult(intent,0);
+                overridePendingTransition(0,0);
+            }
+        });
+        findViewById(R.id.AddStuMarks).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FacultyDashboard.this,PostingMarks.class);
+                startActivityForResult(intent,0);
+                overridePendingTransition(0,0);
+            }
+        });
     }
 }

@@ -21,6 +21,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:background="@drawable/heading_background"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
         </androidx.appcompat.widget.Toolbar>
@@ -74,7 +75,7 @@
                 android:layout_margin="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:text="info"
+                android:text="Info"
                 android:textColor="#190707"
                 android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="@+id/tdate"
