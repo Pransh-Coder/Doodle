@@ -120,7 +120,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:text="Send Notification"
+                        android:text="Announcements"
                         android:layout_marginLeft="2dp"
                         android:textColor="#000"
                         android:textStyle="bold" />
@@ -157,7 +157,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:src="@drawable/addstudent" />
+                        android:src="@drawable/boy" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -188,7 +188,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:src="@drawable/addfaculty" />
+                        android:src="@drawable/faculty" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -220,7 +220,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:src="@drawable/sendnotification" />
+                        android:src="@drawable/report" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -264,7 +264,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:src="@drawable/sendnotification" />
+                        android:src="@drawable/check_money" />
 
                     <TextView
                         android:layout_width="wrap_content"
